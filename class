@@ -1,0 +1,41 @@
+class Client:
+    def __init__(self,id,name,last_name,rut,mail,bank,account_type="",amount=0):
+        self.id = id
+        self.name = name
+        self.last_name = last_name
+        self.rut = rut
+        self.mail = mail
+        self.bank = bank
+        self.account_type = account_type
+        self.amount = amount
+
+    def withdraw(self):
+        print("᲼ ᲼᲼ ᲼᲼ ᲼᲼᲼BIENVENIDO ᲼᲼ ᲼᲼᲼")
+        account_type=input("INGRESE EL BANCO AL CUAL PERTENECE (3-MACH, 4-TENPO, 5-BANCO ESTADO, 6-BANCO CHILE)
+        print("1) INGRESO DE DINERO")
+        print("2) RETIRAR DINERO")
+        print("USTED POSEE UN SALDO ACTUAL DE: ",self.amount,"PESOS")
+        print(" ᲼᲼ ᲼ ᲼᲼ ᲼")
+        opcion = int(input("INGRESE LA OPCIÓN QUE DESEA REALIZAR: "))
+
+        if(opcion==1):
+            amount = int(input("INGRESE EL MONTO QUE DESEA INGRESAR A SU CUENTA: "))
+            if(amount>0):
+                self.amount += amount
+        elif(opcion==2):
+            amount = int(input("INGRESE EL MONTO QUE DESEA RETIRAR: "))
+            if(amount<=self.amount):
+                self.amount -= amount
+            elif(amount>self.amount):
+                print("USTED NO CUENTA CON EL MONTO SUFICIENTE PARA REALIZAR LA OPERACIÓN")
+        else:
+            print("REALICE UNA OPERACIÓN VÁLIDA")
+
+        print("SU SALDO ACTUAL ES DE: ",self.amount)
+
+    def show_info(self):
+        print("NOMBRE: ",self.name,self.last_name)
+        print("RUT: ",self.rut)
+        print("CORREO: ",self.mail)
+        print("BANCO: ",self.bank," CUENTA: ",self.account_type)
+        print("SALDO: ",self.amount)
